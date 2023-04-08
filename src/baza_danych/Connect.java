@@ -1,11 +1,10 @@
 package baza_danych;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+
 public class Connect {
-    private final static String url = "jdbc:mysql://localhost:3306/shop";
+    private final String url = "jdbc:mysql://localhost:3306/shop";
     static Connection conn;
-    public static void db_connect() {
+    public final void db_connect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection(url,"root","");
@@ -16,7 +15,7 @@ public class Connect {
         }
     }
 
-    public static void db_disconnect() {
+    public final void db_disconnect() {
         try {
             conn.close();
             System.out.println("DB connection closed");
@@ -24,10 +23,38 @@ public class Connect {
             System.out.println(e);
         }
     }
-
-
-
-    public void wyp() {
-        System.out.println("Kurde faja");
+    public static ResultSet select() {
+        try {
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM strings");
+            return rs;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
     }
+    public static void print(ResultSet rs) {
+        try {
+            ResultSetMetaData rsmd = rs.getMetaData();
+            for (int col = 1; col<= rsmd.getColumnCount(); col++){
+                System.out.print(rsmd.getColumnName(col) + " ");
+            }
+            System.out.println("");
+            while(rs.next()) {
+                for (int col = 1; col<= rsmd.getColumnCount(); col++){
+                    if (col > 1) System.out.print(",  ");
+                    String columnValue = rs.getString(col);
+                    System.out.print(columnValue + " ");
+                }
+                System.out.println("");
+            }
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    public static void add() {}
+    public static void del() {}
+    public static void update() {}
+
 }
