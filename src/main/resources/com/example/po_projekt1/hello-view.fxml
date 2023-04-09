@@ -12,25 +12,28 @@
                <children>
                   <JFXButton contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="61.0" prefWidth="80.0" textAlignment="CENTER">
                      <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="C:\Users\micha\IdeaProjects\PO_projekt1\src\img\home.png" />
+                           </image></ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton mnemonicParsing="false" prefHeight="61.0" prefWidth="150.0" text="Button">
+                  <JFXButton mnemonicParsing="false" prefHeight="61.0" prefWidth="150.0" text="Wyszukaj">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
-                  <JFXButton mnemonicParsing="false" prefHeight="61.0" prefWidth="150.0" text="Button">
+                  <JFXButton mnemonicParsing="false" prefHeight="61.0" prefWidth="150.0" text="Dodaj/Usuń">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
-                  <JFXButton mnemonicParsing="false" prefHeight="61.0" prefWidth="150.0" text="Button">
+                  <JFXButton mnemonicParsing="false" prefHeight="61.0" prefWidth="150.0" text="Edytuj">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
-                  <JFXButton mnemonicParsing="false" prefHeight="61.0" prefWidth="150.0" text="Button">
+                  <JFXButton mnemonicParsing="false" prefHeight="61.0" prefWidth="150.0" text="Pomoc">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
