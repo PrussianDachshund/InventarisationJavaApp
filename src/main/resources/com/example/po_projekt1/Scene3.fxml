@@ -14,7 +14,7 @@
          <top>
             <HBox prefHeight="60.0" prefWidth="800.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
                <children>
-                  <JFXButton mnemonicParsing="false" onAction="#switchToScene1" prefHeight="61.0" prefWidth="65.0" ripplerFill="#a6a6a6" stylesheets="@style.css" textAlignment="CENTER">
+                  <JFXButton fx:id="btn1" mnemonicParsing="false" onAction="#switchToScene1" prefHeight="61.0" prefWidth="65.0" ripplerFill="#a6a6a6" stylesheets="@style.css" textAlignment="CENTER">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -26,7 +26,7 @@
                         <String fx:value="btn_home" />
                      </styleClass>
                   </JFXButton>
-                  <JFXButton mnemonicParsing="false" onAction="#switchToScene2" prefHeight="61.0" prefWidth="150.0" ripplerFill="#a6a6a6" stylesheets="@style.css" text=" Wyszukaj">
+                  <JFXButton fx:id="btn2" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="61.0" prefWidth="150.0" ripplerFill="#a6a6a6" stylesheets="@style.css" text=" Wyszukaj">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -44,7 +44,7 @@
                         <String fx:value="btn" />
                      </styleClass>
                   </JFXButton>
-                  <JFXButton mnemonicParsing="false" prefHeight="61.0" prefWidth="160.0" ripplerFill="#a6a6a6" stylesheets="@style.css" text=" Dodaj/Usuń">
+                  <JFXButton fx:id="btn3" mnemonicParsing="false" prefHeight="61.0" prefWidth="160.0" ripplerFill="#a6a6a6" stylesheets="@style.css" text=" Dodaj/Usuń">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -59,7 +59,7 @@
                         <String fx:value="btn" />
                      </styleClass>
                   </JFXButton>
-                  <JFXButton mnemonicParsing="false" onAction="#switchToScene4" prefHeight="61.0" prefWidth="150.0" ripplerFill="#a6a6a6" stylesheets="@style.css" text=" Edytuj">
+                  <JFXButton fx:id="btn4" mnemonicParsing="false" onAction="#switchToScene4" prefHeight="61.0" prefWidth="150.0" ripplerFill="#a6a6a6" stylesheets="@style.css" text=" Edytuj">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>

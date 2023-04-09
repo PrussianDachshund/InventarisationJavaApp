@@ -14,7 +14,7 @@
          <top>
             <HBox prefHeight="60.0" prefWidth="800.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
                <children>
-                  <JFXButton mnemonicParsing="false" onAction="#switchToScene1" prefHeight="61.0" prefWidth="65.0" ripplerFill="#a6a6a6" stylesheets="@style.css" textAlignment="CENTER">
+                  <JFXButton fx:id="btn1" mnemonicParsing="false" onAction="#switchToScene1" prefHeight="61.0" prefWidth="65.0" ripplerFill="#a6a6a6" stylesheets="@style.css" textAlignment="CENTER">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -26,7 +26,7 @@
                         <String fx:value="btn_home" />
                      </styleClass>
                   </JFXButton>
-                  <JFXButton mnemonicParsing="false" onAction="#switchToScene2" prefHeight="61.0" prefWidth="150.0" ripplerFill="#a6a6a6" stylesheets="@style.css" text=" Wyszukaj">
+                  <JFXButton fx:id="btn2" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="61.0" prefWidth="150.0" ripplerFill="#a6a6a6" stylesheets="@style.css" text=" Wyszukaj">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -44,7 +44,7 @@
                         <String fx:value="btn" />
                      </styleClass>
                   </JFXButton>
-                  <JFXButton mnemonicParsing="false" onAction="#switchToScene3" prefHeight="61.0" prefWidth="160.0" ripplerFill="#a6a6a6" stylesheets="@style.css" text=" Dodaj/Usuń">
+                  <JFXButton fx:id="btn3" mnemonicParsing="false" onAction="#switchToScene3" prefHeight="61.0" prefWidth="160.0" ripplerFill="#a6a6a6" stylesheets="@style.css" text=" Dodaj/Usuń">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -59,7 +59,7 @@
                         <String fx:value="btn" />
                      </styleClass>
                   </JFXButton>
-                  <JFXButton mnemonicParsing="false" onAction="#switchToScene4" prefHeight="61.0" prefWidth="150.0" ripplerFill="#a6a6a6" stylesheets="@style.css" text=" Edytuj">
+                  <JFXButton fx:id="btn4" mnemonicParsing="false" onAction="#switchToScene4" prefHeight="61.0" prefWidth="150.0" ripplerFill="#a6a6a6" stylesheets="@style.css" text=" Edytuj">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -127,6 +127,80 @@
                         <Insets left="4.0" />
                      </GridPane.margin>
                   </ImageView>
+                  <Label prefHeight="30.0" prefWidth="243.0" text=" Ekran Główny" textAlignment="CENTER" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" opacity="0.83" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="C:\Users\micha\IdeaProjects\PO_projekt1\src\img\home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="88.0" prefWidth="250.0" text=" Wyszukaj produkty,&#10; Wyeksportuj do pliku&#10;" textAlignment="JUSTIFY" wrapText="true" GridPane.rowIndex="2">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="C:\Users\micha\IdeaProjects\PO_projekt1\src\img\search.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text=" Dodaj, usuń produkty" GridPane.rowIndex="3">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="C:\Users\micha\IdeaProjects\PO_projekt1\src\img\plus.png" />
+                           </image></ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text=" Edytuj produkt" GridPane.rowIndex="4">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="C:\Users\micha\IdeaProjects\PO_projekt1\src\img\edit.png" />
+                           </image></ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="BOTTOM_LEFT" prefHeight="78.0" prefWidth="283.0" text="  Legenda:">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_RIGHT" prefHeight="78.0" prefWidth="299.0" text="&#10;Pamiętaj o połączeniu z serwerem!  &#10;" textAlignment="CENTER" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </GridPane>
          </center>

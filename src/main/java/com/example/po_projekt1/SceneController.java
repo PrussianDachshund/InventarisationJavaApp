@@ -27,17 +27,31 @@ public class SceneController implements Initializable {
 
     @FXML
     private JFXToggleButton toggle;
+    @FXML
+    private Button btn2, btn3, btn4;
 
+    public void toggleDisable() {
+        if(!ToggleState.state) {
+            btn2.setDisable(true);
+            btn3.setDisable(true);
+            btn4.setDisable(true);
+        }
+        else {
+            btn2.setDisable(false);
+            btn3.setDisable(false);
+            btn4.setDisable(false);
+        }
+    }
 
 
     //TOGGLE EVENTS/////////////////////////////////////////////////////////////////////////////////////////////////////
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         if(ToggleState.state) {
             toggle.setSelected(true);
         }
         System.out.println(ToggleState.state);
+        toggleDisable();
         toggle.selectedProperty().addListener(new ChangeListener<Boolean>() {
 
             @Override
@@ -48,10 +62,14 @@ public class SceneController implements Initializable {
                     Connect.print(Connect.select());
                     System.out.println("pol");
                     ToggleState.state = toggle.isSelected();
+                    toggleDisable();
+
                 }
                 else if (!toggle.isSelected()) {
                     database_connector.db_disconnect();
                     ToggleState.state = toggle.isSelected();
+                    toggleDisable();
+
                 }
             }
         });
@@ -66,7 +84,7 @@ public class SceneController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
+        toggleDisable();
     }
 
     public void switchToScene2(ActionEvent event) throws IOException {
@@ -75,7 +93,7 @@ public class SceneController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
+        toggleDisable();
     }
 
     public void switchToScene3(ActionEvent event) throws IOException {
@@ -84,7 +102,7 @@ public class SceneController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
+        toggleDisable();
     }
 
     public void switchToScene4(ActionEvent event) throws IOException {
@@ -93,7 +111,7 @@ public class SceneController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
+        toggleDisable();
     }
 
     public void switchToScene5(ActionEvent event) throws IOException {
@@ -102,7 +120,7 @@ public class SceneController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
+        toggleDisable();
     }
 
 }

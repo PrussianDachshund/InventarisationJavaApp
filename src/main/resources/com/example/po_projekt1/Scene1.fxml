@@ -127,7 +127,7 @@
                         <Insets left="4.0" />
                      </GridPane.margin>
                   </ImageView>
-                  <Label alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="98.0" prefWidth="300.0" text="Program Inwentaryzacjny" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Label alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="98.0" prefWidth="300.0" text="Program Inwentaryzacyjny" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="25.0" />
                      </font>
