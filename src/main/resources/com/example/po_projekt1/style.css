@@ -1,0 +1,59 @@
+.btn {
+    -fx-border-radius: 0px;
+    -fx-background-radius: 0px;
+}
+
+.btn_home:hover {
+    -fx-border-color: #F9DC5F;
+    -fx-border-width: 0px 0px 2px 0px;
+}
+
+.btn_search:hover {
+    -fx-border-color: #DD4747;
+    -fx-border-width: 0px 0px 2px 0px;
+}
+
+.btn_plus:hover {
+    -fx-border-color: #2CC26C;
+    -fx-border-width: 0px 0px 2px 0px;
+}
+
+.btn_edit:hover {
+    -fx-border-color: #3BCC9C;
+    -fx-border-width: 0px 0px 2px 0px;
+}
+
+.btn_help:hover {
+    -fx-border-color: #3F6282;
+    -fx-border-width: 0px 0px 2px 0px;
+}
+
+.btn_selected_scene1 {
+    -fx-border-color: #F9DC5F;
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-background-color: #b0b0b0;
+}
+
+.btn_selected_scene2 {
+    -fx-border-color: #DD4747;
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-background-color: #b0b0b0;
+}
+
+.btn_selected_scene3 {
+    -fx-border-color: #2CC26C;
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-background-color: #b0b0b0;
+}
+
+.btn_selected_scene4 {
+    -fx-border-color: #3BCC9C;
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-background-color: #b0b0b0;
+}
+
+.btn_selected_scene5 {
+    -fx-border-color: #3F6282;
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-background-color: #b0b0b0;
+}

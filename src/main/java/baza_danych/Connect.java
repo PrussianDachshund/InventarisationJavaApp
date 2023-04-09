@@ -17,8 +17,10 @@ public class Connect {
 
     public final void db_disconnect() {
         try {
+            if(conn!=null) {
             conn.close();
             System.out.println("DB connection closed");
+            }
         } catch (Exception e) {
             System.out.println(e);
         }

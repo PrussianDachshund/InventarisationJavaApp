@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.po_projekt1.SceneController">
+   <children>
+      <BorderPane prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: #cfcfcf;">
+         <top>
+            <HBox prefHeight="60.0" prefWidth="800.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton mnemonicParsing="false" onAction="#switchToScene1" prefHeight="61.0" prefWidth="65.0" ripplerFill="#a6a6a6" stylesheets="@style.css" textAlignment="CENTER">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="C:\Users\micha\IdeaProjects\PO_projekt1\src\img\home.png" />
+                           </image></ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="btn" />
+                        <String fx:value="btn_home" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton mnemonicParsing="false" onAction="#switchToScene2" prefHeight="61.0" prefWidth="150.0" ripplerFill="#a6a6a6" stylesheets="@style.css" text=" Wyszukaj">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="C:\Users\micha\IdeaProjects\PO_projekt1\src\img\search.png" />
+                           </image></ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <styleClass>
+                        <String fx:value="btn_search" />
+                        <String fx:value="btn" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton mnemonicParsing="false" onAction="#switchToScene3" prefHeight="61.0" prefWidth="160.0" ripplerFill="#a6a6a6" stylesheets="@style.css" text=" Dodaj/Usuń">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="C:\Users\micha\IdeaProjects\PO_projekt1\src\img\plus.png" />
+                           </image></ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="btn_edit" />
+                        <String fx:value="btn" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton mnemonicParsing="false" prefHeight="61.0" prefWidth="150.0" ripplerFill="#a6a6a6" stylesheets="@style.css" text=" Edytuj">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="C:\Users\micha\IdeaProjects\PO_projekt1\src\img\edit.png" />
+                           </image></ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="btn_selected_scene4" />
+                        <String fx:value="btn" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton mnemonicParsing="false" onAction="#switchToScene5" prefHeight="61.0" prefWidth="150.0" ripplerFill="#a6a6a6" stylesheets="@style.css" text=" Pomoc">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="C:\Users\micha\IdeaProjects\PO_projekt1\src\img\help.png" />
+                           </image></ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="btn_help" />
+                        <String fx:value="btn" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXToggleButton fx:id="toggle" cache="true" contentDisplay="BOTTOM" depthTest="DISABLE" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="122.0" size="7.0" text="Serwer BD" wrapText="true">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </JFXToggleButton>
+               </children>
+            </HBox>
+         </top>
+         <bottom>
+            <HBox prefHeight="30.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="timer" prefHeight="58.0" prefWidth="140.0" textFill="WHITE" />
+               </children>
+            </HBox>
+         </bottom>
+         <center>
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" graphicTextGap="5.0" pickOnBounds="false" prefHeight="294.0" prefWidth="155.0" text="Program Inwentaryzacyjny SOUND SYSTEM" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true" BorderPane.alignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="293.0" fitWidth="454.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="C:\Users\micha\IdeaProjects\PO_projekt1\src\img\logo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>
