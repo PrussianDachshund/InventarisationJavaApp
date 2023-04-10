@@ -1,5 +1,7 @@
 package com.example.po_projekt1;
+
 import baza_danych.Connect;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -9,16 +11,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
-import com.jfoenix.controls.JFXToggleButton;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class SceneController implements Initializable {
+public class Scene2Controller implements Initializable {
 
     private Stage stage;
     private Scene scene;
@@ -28,29 +29,54 @@ public class SceneController implements Initializable {
     @FXML
     private JFXToggleButton toggle;
     @FXML
-    private Button btn2, btn3, btn4;
+    private Button btn2, btn3, btn4, btn_search;
+    @FXML
+    private ComboBox category;
+    @FXML
+    private TextField price_field, amount_field;
+    @FXML
+    private RadioButton available_radio, not_available_radio;
+    @FXML
+    private final ToggleGroup group = new ToggleGroup();
 
-    public void toggleDisable() {
+
+    //CONTROLS//////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private void button_disable(Button btn) {
         if(!ToggleState.state) {
-            btn2.setDisable(true);
-            btn3.setDisable(true);
-            btn4.setDisable(true);
+            btn.setDisable(true);
         }
         else {
-            btn2.setDisable(false);
-            btn3.setDisable(false);
-            btn4.setDisable(false);
+            btn.setDisable(false);
         }
     }
-
-
-    //TOGGLE EVENTS/////////////////////////////////////////////////////////////////////////////////////////////////////
+    private void toggleDisable() {
+        button_disable(btn2);
+        button_disable(btn3);
+        button_disable(btn4);
+        button_disable(btn_search);
+    }
+    private final void comboSearchInit() {
+        category.getItems().removeAll(category.getItems());
+        category.getItems().addAll("Produkty","Gitary","Klawisze","Perkusyjne","Wzmacniacze","Kolumny");
+        category.getSelectionModel().select(0);
+    }
+    private final void setToogleGrp() {
+        available_radio.setToggleGroup(group);
+        not_available_radio.setToggleGroup(group);
+    }
+    private final String getRadioValueInString() {
+        RadioButton rb = (RadioButton) group.getSelectedToggle();
+        return rb.getText();
+    }
+    //INITIALIZATION////////////////////////////////////////////////////////////////////////////////////////////////////
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        setToogleGrp();
+
         if(ToggleState.state) {
             toggle.setSelected(true);
         }
-        System.out.println(ToggleState.state);
+
         toggleDisable();
         toggle.selectedProperty().addListener(new ChangeListener<Boolean>() {
 
@@ -59,11 +85,13 @@ public class SceneController implements Initializable {
 
                 if(toggle.isSelected()) {
                     database_connector.db_connect();
-                    Connect.print(Connect.select());
-                    System.out.println("pol");
-                    ToggleState.state = toggle.isSelected();
-                    toggleDisable();
-
+                    if(database_connector.isDbOn()) {
+                        ToggleState.state = toggle.isSelected();
+                        toggleDisable();
+                    }
+                    else {
+                        toggle.setSelected(false);
+                    }
                 }
                 else if (!toggle.isSelected()) {
                     database_connector.db_disconnect();
@@ -73,22 +101,22 @@ public class SceneController implements Initializable {
                 }
             }
         });
+        comboSearchInit();
+    }
 
+    //SEARCH SQL////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @FXML
+    private void SearchSQL(ActionEvent event) {
+        System.out.println(category.getValue());
+        System.out.println(price_field.getText());
+        System.out.println(amount_field.getText());
+        System.out.println(getRadioValueInString());
     }
 
 
-    //SCENE CONTROLLER////////////////////////////////////////////////////////////////////////////////////////////
+    //SCENE CONTROLLER//////////////////////////////////////////////////////////////////////////////////////////////////
     public void switchToScene1(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Scene1.fxml"));
-        stage = (Stage)(((Node)event.getSource()).getScene().getWindow());
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        toggleDisable();
-    }
-
-    public void switchToScene2(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Scene2.fxml"));
         stage = (Stage)(((Node)event.getSource()).getScene().getWindow());
         scene = new Scene(root);
         stage.setScene(scene);

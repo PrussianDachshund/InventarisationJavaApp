@@ -3,15 +3,25 @@ import java.sql.*;
 
 public class Connect {
     private final String url = "jdbc:mysql://localhost:3306/shop";
-    static Connection conn;
+    private static Connection conn;
+    private boolean isDbOn;
+
+    public boolean isDbOn() {
+        return isDbOn;
+    }
+
     public final void db_connect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection(url,"root","");
-            System.out.println("DB connected");
+            if(!(conn==null)) {
+                System.out.println("DB connected");
+                isDbOn = true;
+            }
         }
         catch (Exception e) {
             System.out.println(e);
+            isDbOn = false;
         }
     }
 

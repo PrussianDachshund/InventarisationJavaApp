@@ -3,6 +3,7 @@ module com.example.po_projekt1 {
     requires javafx.fxml;
     requires java.sql;
     requires com.jfoenix;
+    requires mysql.connector.j;
 
 
     opens com.example.po_projekt1 to javafx.fxml;
