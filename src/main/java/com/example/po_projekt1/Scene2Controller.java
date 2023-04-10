@@ -27,7 +27,7 @@ public class Scene2Controller implements Initializable {
     private final Connect database_connector = new Connect();
 
     @FXML
-    private JFXToggleButton toggle;
+    private JFXToggleButton toggle, and_or_1, and_or_2;
     @FXML
     private Button btn2, btn3, btn4, btn_search;
     @FXML
@@ -64,10 +64,14 @@ public class Scene2Controller implements Initializable {
         available_radio.setToggleGroup(group);
         not_available_radio.setToggleGroup(group);
     }
-    private final String getRadioValueInString() {
+    private final int getRadioValueInString() {
         RadioButton rb = (RadioButton) group.getSelectedToggle();
-        return rb.getText();
+        if((rb.getText().equals("Dostępny"))) {
+            return 1;
+        }
+        else return 0;
     }
+
     //INITIALIZATION////////////////////////////////////////////////////////////////////////////////////////////////////
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -106,14 +110,82 @@ public class Scene2Controller implements Initializable {
 
     //SEARCH SQL////////////////////////////////////////////////////////////////////////////////////////////////////////
     @FXML
-    private void SearchSQL(ActionEvent event) {
-        System.out.println(category.getValue());
-        System.out.println(price_field.getText());
-        System.out.println(amount_field.getText());
-        System.out.println(getRadioValueInString());
+    private void searchSQL(ActionEvent event) {
+        category.getValue();
+        price_field.getText();
+        amount_field.getText();
+        getRadioValueInString();
+        String sql_query_1 = "SELECT * FROM products";
+        String sql_query_2 = "";
+        String sql_query_3 = "";
+        String sql_join = "";
+        switch ((String) category.getValue()) {
+            case "Produkty":
+                sql_query_2 = "products";
+                break;
+            case "Gitary":
+                sql_query_2 = "strings";
+                sql_join += " JOIN "+sql_query_2 + " ON products.id="+sql_query_2+".id_prod";
+                break;
+            case "Klawisze":
+                sql_query_2 = "keys_instruments";
+                sql_join += " JOIN "+sql_query_2 + " ON products.id="+sql_query_2+".id_prod";
+                break;
+            case "Perkusyjne":
+                sql_query_2 = "percussive";
+                sql_join += " JOIN "+sql_query_2 + " ON products.id="+sql_query_2+".id_prod";
+                break;
+            case "Wzmacniacze":
+                sql_query_2 = "amplifiers";
+                sql_join += " JOIN "+sql_query_2 + " ON products.id="+sql_query_2+".id_prod";
+                break;
+            case "Kolumny":
+                sql_query_2 = "columns";
+                sql_join += " JOIN "+sql_query_2 + " ON products.id="+sql_query_2+".id_prod";
+                break;
+            default: {
+            }
+        }
+            String statement = sql_query_1+sql_join+sql_query_3+whereClause();
+            Connect.print(Connect.select(statement));
     }
 
+    private String whereClause() {
+        String sql_query_4 = "";
+        String sql_query_5 = "";
+        String sql_query_6 = "";
+        String sql_and_or_1 = "";
+        String sql_and_or_2= "";
+        String sql_query_7 = ";";
+        if(getRadioValueInString() == 1) {
+            sql_query_4 = " available=1";
+        }
+        else if(getRadioValueInString() == 0){
+            sql_query_4 = " available=0";
+        }
 
+        if(!(price_field.getText().equals(""))) {
+            if(and_or_1.isSelected()) {
+                sql_and_or_1 = " OR";
+            }
+            else sql_and_or_1 = " AND";
+
+            sql_query_5 = sql_and_or_1 + " price" + price_field.getText();
+        }
+        if(!(amount_field.getText().equals(""))) {
+            if(and_or_2.isSelected()) {
+                sql_and_or_2 = " OR";
+            }
+            else sql_and_or_2 = " AND";
+            sql_query_6 =sql_and_or_2 + " amount" + amount_field.getText();
+        }
+
+        return " WHERE"+sql_query_4+sql_query_5+sql_query_6+sql_query_7;
+    }
+
+    private void sqlTablePrint() {
+
+    }
     //SCENE CONTROLLER//////////////////////////////////////////////////////////////////////////////////////////////////
     public void switchToScene1(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Scene1.fxml"));

@@ -35,10 +35,10 @@ public class Connect {
             System.out.println(e);
         }
     }
-    public static ResultSet select() {
+    public static ResultSet select(String sql_statement) {
         try {
             Statement stm = conn.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM strings");
+            ResultSet rs = stm.executeQuery(sql_statement);
             return rs;
         } catch (Exception e) {
             System.out.println(e);
