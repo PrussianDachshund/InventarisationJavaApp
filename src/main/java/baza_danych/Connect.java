@@ -69,7 +69,10 @@ public class Connect {
         Statement stm = conn.createStatement();
         stm.executeUpdate(statement);
     }
-    public static void del() {}
+    public static void del(String statement) throws SQLException {
+        Statement stm = conn.createStatement();
+        stm.executeUpdate(statement);
+    }
     public static void update() {}
 
 }

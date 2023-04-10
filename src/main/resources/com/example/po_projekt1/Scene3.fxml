@@ -109,7 +109,7 @@
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="138.0" layoutX="583.0" layoutY="240.0" stroke="#919191" strokeType="OUTSIDE" width="186.0" />
-                  <Label layoutX="597.0" layoutY="331.0" prefHeight="29.0" prefWidth="71.0" text="Label" />
+                  <Label fx:id="label_del" alignment="CENTER" layoutX="597.0" layoutY="331.0" prefHeight="29.0" prefWidth="71.0" />
                   <TabPane fx:id="tab" layoutX="35.0" layoutY="14.0" prefHeight="211.0" prefWidth="736.0" style="-fx-border-color: #9a9a9a; -fx-border-radius: 3px;" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
                       <Tab text="Gitary">
@@ -142,23 +142,23 @@
                               <AnchorPane prefHeight="181.0" prefWidth="730.0">
                                  <children>
                                     <JFXButton fx:id="add_keys" layoutX="634.0" layoutY="129.0" mnemonicParsing="false" onAction="#addSQL" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: white;" text="Dodaj" />
-                                    <TextField layoutX="79.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField fx:id="keys_name" layoutX="79.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" promptText="Casio CT-S1 BK" text="Casio CT-S1 BK" />
                                     <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="41.0" text="Nazwa:" />
                                     <Label layoutX="14.0" layoutY="51.0" prefHeight="18.0" prefWidth="51.0" text="Rodzaj:" />
-                                    <Label layoutX="14.0" layoutY="91.0" prefHeight="18.0" prefWidth="60.0" text="Waga" />
-                                    <Label layoutX="14.0" layoutY="131.0" prefHeight="18.0" prefWidth="58.0" text="Kolor:" />
+                                    <Label layoutX="14.0" layoutY="91.0" prefHeight="18.0" prefWidth="60.0" text="Waga:" />
+                                    <Label layoutX="14.0" layoutY="131.0" prefHeight="18.0" prefWidth="58.0" text="Moc:" />
                                     <Label layoutX="288.0" layoutY="14.0" prefHeight="18.0" prefWidth="90.0" text="Liczba klawiszy:" />
                                     <Label layoutX="288.0" layoutY="51.0" prefHeight="18.0" prefWidth="102.0" text="Rozmiar głośnika:" />
                                     <Label layoutX="288.0" layoutY="91.0" text="Cena:" />
                                     <Label layoutX="289.0" layoutY="131.0" text="Ilość:" />
-                                    <TextField layoutX="79.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="79.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="79.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="388.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="388.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="388.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="388.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <Label layoutX="618.0" layoutY="88.0" prefHeight="30.0" prefWidth="86.0" text="Label" />
+                                    <TextField fx:id="keys_type" layoutX="79.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" promptText="Keyboard" text="Keyboard" />
+                                    <TextField fx:id="keys_weight" layoutX="79.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" promptText="4.5" text="4.5" />
+                                    <TextField fx:id="keys_power" layoutX="79.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" promptText="2" text="2" />
+                                    <TextField fx:id="keys_k_amount" layoutX="388.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" promptText="61" text="61" />
+                                    <TextField fx:id="keys_size" layoutX="388.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" promptText="4" text="4" />
+                                    <TextField fx:id="keys_price" layoutX="388.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" promptText="1299" text="1299" />
+                                    <TextField fx:id="keys_amount" layoutX="388.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" promptText="2" text="2" />
+                                    <Label fx:id="label_keys" alignment="CENTER" layoutX="634.0" layoutY="93.0" prefHeight="30.0" prefWidth="86.0" textAlignment="CENTER" />
                                  </children>
                               </AnchorPane>
                            </content></Tab>
@@ -167,19 +167,19 @@
                               <AnchorPane prefHeight="181.0" prefWidth="730.0">
                                  <children>
                                     <JFXButton fx:id="add_perc" layoutX="634.0" layoutY="129.0" mnemonicParsing="false" onAction="#addSQL" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: white;" text="Dodaj" />
-                                    <TextField layoutX="79.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField fx:id="perc_name" layoutX="79.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" promptText="ZILDJIAN 12 A New Beat Hihats" text="ZILDJIAN 12 A New Beat Hihats" />
                                     <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="41.0" text="Nazwa:" />
                                     <Label layoutX="14.0" layoutY="51.0" prefHeight="18.0" prefWidth="51.0" text="Rodzaj:" />
                                     <Label layoutX="14.0" layoutY="91.0" prefHeight="18.0" prefWidth="51.0" text="Materiał:" />
-                                    <Label layoutX="14.0" layoutY="131.0" prefHeight="18.0" prefWidth="58.0" text="Kolor:" />
+                                    <Label layoutX="14.0" layoutY="131.0" prefHeight="18.0" prefWidth="58.0" text="Rozmiar:" />
                                     <Label layoutX="298.0" layoutY="91.0" text="Cena:" />
                                     <Label layoutX="298.0" layoutY="131.0" text="Ilość:" />
-                                    <TextField layoutX="79.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="79.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="79.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="388.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="388.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <Label layoutX="618.0" layoutY="88.0" prefHeight="30.0" prefWidth="86.0" text="Label" />
+                                    <TextField fx:id="perc_type" layoutX="79.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" promptText="Hi-hat" text="Hi-hat" />
+                                    <TextField fx:id="perc_material" layoutX="79.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" promptText="Stop B20" text="Stop B20" />
+                                    <TextField fx:id="perc_size" layoutX="79.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" promptText="12" text="12" />
+                                    <TextField fx:id="perc_price" layoutX="388.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" promptText="1710" text="1710" />
+                                    <TextField fx:id="perc_amount" layoutX="388.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" promptText="3" text="3" />
+                                    <Label fx:id="label_perc" alignment="CENTER" layoutX="634.0" layoutY="93.0" prefHeight="30.0" prefWidth="86.0" />
                                  </children>
                               </AnchorPane>
                            </content>
@@ -189,7 +189,7 @@
                               <AnchorPane prefHeight="181.0" prefWidth="730.0">
                                  <children>
                                     <JFXButton fx:id="add_guitar5" layoutX="634.0" layoutY="129.0" mnemonicParsing="false" onAction="#addSQL" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: white;" text="Dodaj" />
-                                    <TextField layoutX="79.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField fx:id="amp_name" layoutX="79.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" promptText="Orange CR120C" text="Orange CR120C" />
                                     <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="41.0" text="Nazwa:" />
                                     <Label layoutX="14.0" layoutY="51.0" prefHeight="18.0" prefWidth="51.0" text="Typ:" />
                                     <Label layoutX="14.0" layoutY="91.0" prefHeight="18.0" prefWidth="51.0" text="Moc:" />
@@ -198,24 +198,24 @@
                                     <Label layoutX="298.0" layoutY="51.0" text="Liczba kanałów:" />
                                     <Label layoutX="298.0" layoutY="91.0" text="Cena:" />
                                     <Label layoutX="298.0" layoutY="131.0" text="Ilość:" />
-                                    <TextField layoutX="79.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="79.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="79.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="388.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="388.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="388.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="388.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <Label layoutX="618.0" layoutY="88.0" prefHeight="30.0" prefWidth="86.0" text="Label" />
+                                    <TextField fx:id="amp_type" layoutX="79.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" promptText="Tranzystorowy" text="Tranzystorowy" />
+                                    <TextField fx:id="amp_power" layoutX="79.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" promptText="120" text="120" />
+                                    <TextField fx:id="amp_size" layoutX="79.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" promptText="12" text="12" />
+                                    <TextField fx:id="amp_eff_loop" layoutX="388.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" promptText="true" text="true" />
+                                    <TextField fx:id="amp_channel_am" layoutX="388.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" promptText="2" text="2" />
+                                    <TextField fx:id="amp_price" layoutX="388.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" promptText="2649" text="2649" />
+                                    <TextField fx:id="amp_amount" layoutX="388.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" promptText="1" text="1" />
+                                    <Label fx:id="label_amp" alignment="CENTER" layoutX="634.0" layoutY="93.0" prefHeight="30.0" prefWidth="86.0" />
                                  </children>
                               </AnchorPane>
                            </content>
                         </Tab>
-                        <Tab fx:id="add_col" onSelectionChanged="#addSQL" text="Kolumny">
+                        <Tab fx:id="add_col" text="Kolumny">
                            <content>
                               <AnchorPane prefHeight="181.0" prefWidth="730.0">
                                  <children>
-                                    <JFXButton fx:id="add_col" layoutX="634.0" layoutY="129.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: white;" text="Dodaj" />
-                                    <TextField layoutX="79.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <JFXButton fx:id="add_col" layoutX="634.0" layoutY="129.0" mnemonicParsing="false" onAction="#addSQL" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: white;" text="Dodaj" />
+                                    <TextField fx:id="col_name" layoutX="79.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" promptText="Marshall SV212" text="Marshall SV212" />
                                     <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="41.0" text="Nazwa:" />
                                     <Label layoutX="14.0" layoutY="51.0" prefHeight="18.0" prefWidth="51.0" text="Moc:" />
                                     <Label layoutX="14.0" layoutY="91.0" prefHeight="18.0" prefWidth="51.0" text="Waga:" />
@@ -224,28 +224,28 @@
                                     <Label layoutX="298.0" layoutY="51.0" text="Impedancja:" />
                                     <Label layoutX="298.0" layoutY="91.0" text="Cena:" />
                                     <Label layoutX="298.0" layoutY="131.0" text="Ilość:" />
-                                    <TextField layoutX="79.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="79.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="79.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="388.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="388.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="388.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <TextField layoutX="388.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" />
-                                    <Label layoutX="618.0" layoutY="88.0" prefHeight="30.0" prefWidth="86.0" text="Label" />
+                                    <TextField fx:id="col_power" layoutX="79.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" promptText="140" text="140" />
+                                    <TextField fx:id="col_weight" layoutX="79.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" promptText="23.85" text="23.85" />
+                                    <TextField fx:id="col_size" layoutX="79.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" promptText="12" text="12" />
+                                    <TextField fx:id="col_speaker_amount" layoutX="388.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" promptText="2" text="2" />
+                                    <TextField fx:id="col_impedance" layoutX="388.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" promptText="8" text="8" />
+                                    <TextField fx:id="col_price" layoutX="388.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" promptText="2399" text="2399" />
+                                    <TextField fx:id="col_amount" layoutX="388.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" promptText="1" text="1" />
+                                    <Label fx:id="label_col" alignment="CENTER" layoutX="634.0" layoutY="93.0" prefHeight="30.0" prefWidth="86.0" />
                                  </children>
                               </AnchorPane>
                            </content>
                         </Tab>
                     </tabs>
                   </TabPane>
-                  <JFXButton fx:id="del" layoutX="670.0" layoutY="326.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: white;" text="Usuń" />
+                  <JFXButton fx:id="del" layoutX="670.0" layoutY="326.0" mnemonicParsing="false" onAction="#delSQL" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: white;" text="Usuń" />
                   <TableView fx:id="tableview" layoutX="35.0" layoutY="240.0" prefHeight="140.0" prefWidth="537.0">
                     <columns>
                       <TableColumn prefWidth="75.0" text="C1" />
                       <TableColumn prefWidth="75.0" text="C2" />
                     </columns>
                   </TableView>
-                  <TextField layoutX="665.0" layoutY="278.0" prefHeight="25.0" prefWidth="95.0" />
+                  <TextField fx:id="delete" layoutX="665.0" layoutY="278.0" prefHeight="25.0" prefWidth="95.0" />
                   <Label layoutX="590.0" layoutY="282.0" prefHeight="17.0" prefWidth="80.0" text="ID Produktu:" />
                </children>
             </Pane>

@@ -160,7 +160,7 @@ public class Scene2Controller implements Initializable {
                 break;
             case "Kolumny":
                 sql_query_1 = "SELECT products.id, columns.id, name, power, speaker_size," +
-                        " speakers_amount, impedance, weight, inputs_amount, products.amount," +
+                        " speakers_amount, impedance, weight, products.amount," +
                         " products.price FROM products";
                 sql_query_2 = "columns";
                 sql_join += " JOIN "+sql_query_2 + " ON products.id="+sql_query_2+".id_prod";
