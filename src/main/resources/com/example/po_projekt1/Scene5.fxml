@@ -145,7 +145,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="88.0" prefWidth="250.0" text=" Wyszukaj produkty,&#10; Wyeksportuj do pliku&#10;" textAlignment="JUSTIFY" wrapText="true" GridPane.rowIndex="2">
+                  <Label prefHeight="88.0" prefWidth="250.0" text=" Wyszukaj produkty&#10;" textAlignment="JUSTIFY" wrapText="true" GridPane.rowIndex="2">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>

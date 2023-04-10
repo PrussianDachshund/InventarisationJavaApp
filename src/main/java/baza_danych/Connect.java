@@ -65,7 +65,10 @@ public class Connect {
             System.out.println(e);
         }
     }
-    public static void add() {}
+    public static void add(String statement) throws SQLException {
+        Statement stm = conn.createStatement();
+        stm.executeUpdate(statement);
+    }
     public static void del() {}
     public static void update() {}
 

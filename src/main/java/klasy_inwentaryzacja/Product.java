@@ -15,6 +15,22 @@ public class Product {
         this.available = your_amount > 0;
         this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
 }
 
 

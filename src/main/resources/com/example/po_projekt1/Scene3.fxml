@@ -6,9 +6,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.po_projekt1.Scene1Controller">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.po_projekt1.Scene3Controller">
    <children>
       <BorderPane prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: #cfcfcf;">
          <top>
@@ -105,21 +106,149 @@
             </HBox>
          </bottom>
          <center>
-            <Label alignment="TOP_CENTER" contentDisplay="CENTER" graphicTextGap="5.0" pickOnBounds="false" prefHeight="294.0" prefWidth="155.0" text="Program Inwentaryzacyjny SOUND SYSTEM" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true" BorderPane.alignment="CENTER">
-               <graphic>
-                  <ImageView fitHeight="293.0" fitWidth="454.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="C:\Users\micha\IdeaProjects\PO_projekt1\src\img\logo.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="23.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Label>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="138.0" layoutX="583.0" layoutY="240.0" stroke="#919191" strokeType="OUTSIDE" width="186.0" />
+                  <Label layoutX="597.0" layoutY="331.0" prefHeight="29.0" prefWidth="71.0" text="Label" />
+                  <TabPane fx:id="tab" layoutX="35.0" layoutY="14.0" prefHeight="211.0" prefWidth="736.0" style="-fx-border-color: #9a9a9a; -fx-border-radius: 3px;" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Gitary">
+                           <content>
+                              <AnchorPane prefHeight="181.0" prefWidth="730.0">
+                                 <children>
+                                    <JFXButton fx:id="add_guitar" layoutX="634.0" layoutY="129.0" mnemonicParsing="false" onAction="#addSQL" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: white;" text="Dodaj" />
+                                    <TextField fx:id="guitar_name" layoutX="79.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" promptText="Squier Stratocaster" text="Squier Stratocaster" />
+                                    <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="41.0" text="Nazwa:" />
+                                    <Label layoutX="14.0" layoutY="51.0" prefHeight="18.0" prefWidth="51.0" text="Rodzaj:" />
+                                    <Label layoutX="14.0" layoutY="91.0" prefHeight="18.0" prefWidth="51.0" text="Materiał:" />
+                                    <Label layoutX="14.0" layoutY="131.0" prefHeight="18.0" prefWidth="58.0" text="Kolor:" />
+                                    <Label layoutX="298.0" layoutY="14.0" prefHeight="18.0" prefWidth="90.0" text="Liczba progów:" />
+                                    <Label layoutX="298.0" layoutY="51.0" text="Liczba strun:" />
+                                    <Label layoutX="298.0" layoutY="91.0" text="Cena:" />
+                                    <Label layoutX="298.0" layoutY="131.0" text="Ilość:" />
+                                    <TextField fx:id="guitar_type" layoutX="79.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" promptText="Gitara" text="Gitara" />
+                                    <TextField fx:id="guitar_material" layoutX="79.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" promptText="Klon" text="Klon" />
+                                    <TextField fx:id="guitar_color" layoutX="79.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" promptText="Niebieski" text="Niebieski" />
+                                    <TextField fx:id="guitar_frets" layoutX="388.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" promptText="22" text="22" />
+                                    <TextField fx:id="guitar_strings" layoutX="388.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" promptText="6" text="6" />
+                                    <TextField fx:id="guitar_price" layoutX="388.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" promptText="1400" text="1400" />
+                                    <TextField fx:id="guitar_amount" layoutX="388.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" promptText="1" text="1" />
+                                    <Label fx:id="label_guitar" alignment="CENTER" contentDisplay="CENTER" layoutX="634.0" layoutY="93.0" prefHeight="30.0" prefWidth="86.0" textAlignment="CENTER" />
+                                 </children>
+                              </AnchorPane>
+                           </content></Tab>
+                      <Tab text="Klawisze">
+                           <content>
+                              <AnchorPane prefHeight="181.0" prefWidth="730.0">
+                                 <children>
+                                    <JFXButton fx:id="add_keys" layoutX="634.0" layoutY="129.0" mnemonicParsing="false" onAction="#addSQL" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: white;" text="Dodaj" />
+                                    <TextField layoutX="79.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="41.0" text="Nazwa:" />
+                                    <Label layoutX="14.0" layoutY="51.0" prefHeight="18.0" prefWidth="51.0" text="Rodzaj:" />
+                                    <Label layoutX="14.0" layoutY="91.0" prefHeight="18.0" prefWidth="60.0" text="Waga" />
+                                    <Label layoutX="14.0" layoutY="131.0" prefHeight="18.0" prefWidth="58.0" text="Kolor:" />
+                                    <Label layoutX="288.0" layoutY="14.0" prefHeight="18.0" prefWidth="90.0" text="Liczba klawiszy:" />
+                                    <Label layoutX="288.0" layoutY="51.0" prefHeight="18.0" prefWidth="102.0" text="Rozmiar głośnika:" />
+                                    <Label layoutX="288.0" layoutY="91.0" text="Cena:" />
+                                    <Label layoutX="289.0" layoutY="131.0" text="Ilość:" />
+                                    <TextField layoutX="79.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="79.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="79.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="388.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="388.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="388.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="388.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <Label layoutX="618.0" layoutY="88.0" prefHeight="30.0" prefWidth="86.0" text="Label" />
+                                 </children>
+                              </AnchorPane>
+                           </content></Tab>
+                        <Tab text="Perkusyjne">
+                           <content>
+                              <AnchorPane prefHeight="181.0" prefWidth="730.0">
+                                 <children>
+                                    <JFXButton fx:id="add_perc" layoutX="634.0" layoutY="129.0" mnemonicParsing="false" onAction="#addSQL" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: white;" text="Dodaj" />
+                                    <TextField layoutX="79.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="41.0" text="Nazwa:" />
+                                    <Label layoutX="14.0" layoutY="51.0" prefHeight="18.0" prefWidth="51.0" text="Rodzaj:" />
+                                    <Label layoutX="14.0" layoutY="91.0" prefHeight="18.0" prefWidth="51.0" text="Materiał:" />
+                                    <Label layoutX="14.0" layoutY="131.0" prefHeight="18.0" prefWidth="58.0" text="Kolor:" />
+                                    <Label layoutX="298.0" layoutY="91.0" text="Cena:" />
+                                    <Label layoutX="298.0" layoutY="131.0" text="Ilość:" />
+                                    <TextField layoutX="79.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="79.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="79.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="388.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="388.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <Label layoutX="618.0" layoutY="88.0" prefHeight="30.0" prefWidth="86.0" text="Label" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="add_amp" text="Wzmacniacze">
+                           <content>
+                              <AnchorPane prefHeight="181.0" prefWidth="730.0">
+                                 <children>
+                                    <JFXButton fx:id="add_guitar5" layoutX="634.0" layoutY="129.0" mnemonicParsing="false" onAction="#addSQL" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: white;" text="Dodaj" />
+                                    <TextField layoutX="79.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="41.0" text="Nazwa:" />
+                                    <Label layoutX="14.0" layoutY="51.0" prefHeight="18.0" prefWidth="51.0" text="Typ:" />
+                                    <Label layoutX="14.0" layoutY="91.0" prefHeight="18.0" prefWidth="51.0" text="Moc:" />
+                                    <Label layoutX="14.0" layoutY="131.0" prefHeight="18.0" prefWidth="58.0" text="Rozmiar:" />
+                                    <Label layoutX="298.0" layoutY="14.0" prefHeight="18.0" prefWidth="90.0" text="Pętla efektów" />
+                                    <Label layoutX="298.0" layoutY="51.0" text="Liczba kanałów:" />
+                                    <Label layoutX="298.0" layoutY="91.0" text="Cena:" />
+                                    <Label layoutX="298.0" layoutY="131.0" text="Ilość:" />
+                                    <TextField layoutX="79.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="79.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="79.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="388.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="388.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="388.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="388.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <Label layoutX="618.0" layoutY="88.0" prefHeight="30.0" prefWidth="86.0" text="Label" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="add_col" onSelectionChanged="#addSQL" text="Kolumny">
+                           <content>
+                              <AnchorPane prefHeight="181.0" prefWidth="730.0">
+                                 <children>
+                                    <JFXButton fx:id="add_col" layoutX="634.0" layoutY="129.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: white;" text="Dodaj" />
+                                    <TextField layoutX="79.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="41.0" text="Nazwa:" />
+                                    <Label layoutX="14.0" layoutY="51.0" prefHeight="18.0" prefWidth="51.0" text="Moc:" />
+                                    <Label layoutX="14.0" layoutY="91.0" prefHeight="18.0" prefWidth="51.0" text="Waga:" />
+                                    <Label layoutX="14.0" layoutY="131.0" prefHeight="18.0" prefWidth="58.0" text="Rozmiar:" />
+                                    <Label layoutX="298.0" layoutY="14.0" prefHeight="18.0" prefWidth="90.0" text="Ilość głośników:" />
+                                    <Label layoutX="298.0" layoutY="51.0" text="Impedancja:" />
+                                    <Label layoutX="298.0" layoutY="91.0" text="Cena:" />
+                                    <Label layoutX="298.0" layoutY="131.0" text="Ilość:" />
+                                    <TextField layoutX="79.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="79.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="79.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="388.0" layoutY="10.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="388.0" layoutY="47.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="388.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <TextField layoutX="388.0" layoutY="127.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <Label layoutX="618.0" layoutY="88.0" prefHeight="30.0" prefWidth="86.0" text="Label" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+                  <JFXButton fx:id="del" layoutX="670.0" layoutY="326.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: white;" text="Usuń" />
+                  <TableView fx:id="tableview" layoutX="35.0" layoutY="240.0" prefHeight="140.0" prefWidth="537.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="C1" />
+                      <TableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TableView>
+                  <TextField layoutX="665.0" layoutY="278.0" prefHeight="25.0" prefWidth="95.0" />
+                  <Label layoutX="590.0" layoutY="282.0" prefHeight="17.0" prefWidth="80.0" text="ID Produktu:" />
+               </children>
+            </Pane>
          </center>
       </BorderPane>
    </children>
