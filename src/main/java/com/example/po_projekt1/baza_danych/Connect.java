@@ -1,4 +1,4 @@
-package baza_danych;
+package com.example.po_projekt1.baza_danych;
 import java.sql.*;
 
 public class Connect {
@@ -73,6 +73,9 @@ public class Connect {
         Statement stm = conn.createStatement();
         stm.executeUpdate(statement);
     }
-    public static void update() {}
+    public static void update(String statement) throws SQLException{
+        Statement stm = conn.createStatement();
+        stm.executeUpdate(statement);
+    }
 
 }

@@ -1,5 +1,5 @@
 package com.example.po_projekt1;
-import baza_danych.Connect;
+import com.example.po_projekt1.baza_danych.Connect;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;

@@ -1,6 +1,6 @@
 package com.example.po_projekt1;
 
-import baza_danych.Connect;
+import com.example.po_projekt1.baza_danych.Connect;
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
@@ -17,7 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-import klasy_inwentaryzacja.*;
+import com.example.po_projekt1.klasy_inwentaryzacja.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -78,41 +78,6 @@ public class Scene3Controller implements Initializable {
         button_disable(btn4);
     }
     //SQL///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private void searchSQL() throws SQLException {
-        String statement = "SELECT * FROM products";
-        System.out.println(statement);
-        ObservableList<ObservableList> data;
-        data = FXCollections.observableArrayList();
-        tableview.getItems().clear();
-        tableview.getColumns().clear();
-        tableview.refresh();
-        try{
-            ResultSet rs = Connect.select(statement);
-            for(int i=0; i<rs.getMetaData().getColumnCount();i++) {
-                final int j=i;
-                TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i+1));
-                col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
-                    public ObservableValue<String> call(TableColumn.CellDataFeatures<ObservableList, String> param) {
-                        return new SimpleStringProperty(param.getValue().get(j).toString());
-                    }
-                });
-                tableview.getColumns().addAll(col);
-            }
-            while(rs.next()) {
-                ObservableList<String> row = FXCollections.observableArrayList();
-                for(int i=1; i<=rs.getMetaData().getColumnCount(); i++) {
-                    row.add(rs.getString(i));
-                }
-                data.add(row);
-            }
-            tableview.setItems(data);
-
-        }
-        catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
     @FXML
     private void addSQL(ActionEvent event) throws SQLException {
         System.out.println(tab.getSelectionModel().getSelectedIndex());
@@ -131,8 +96,8 @@ public class Scene3Controller implements Initializable {
                 try {
                     Strings guitar = new Strings(price, amount, name, type, material, fret, strings_am, color);
 
-                    String statement_1 = "INSERT INTO products(price, amount, available) VALUES (";
-                    String statement_2 = guitar.getPrice() +", "+ guitar.getAmount() +", "+ guitar.isAvailable()+");";
+                    String statement_1 = "INSERT INTO products(name, price, amount, available) VALUES (";
+                    String statement_2 ="\""+ guitar.getName()+"\","+guitar.getPrice() +", "+ guitar.getAmount() +", "+ guitar.isAvailable()+");";
                     String sql_1_2 = statement_1+statement_2;
 
                     try {
@@ -140,9 +105,9 @@ public class Scene3Controller implements Initializable {
                         ResultSet rs = Connect.select("SELECT id FROM products ORDER BY 1 DESC LIMIT 1");
                         rs.next();
                         int ind = Integer.parseInt(rs.getString(1));
-                        String statement_2_1 = "INSERT INTO strings(id_prod, name, type, material, colour," +
+                        String statement_2_1 = "INSERT INTO strings(id_prod, type, material, colour," +
                                 " fret_amount, strings_amount) VALUES (";
-                        String statement_2_2 = ind + ", \""+ guitar.getName()+ "\", \""+guitar.getType()
+                        String statement_2_2 = ind + ", \""+guitar.getType()
                                 + "\", \""+guitar.getMaterial()+ "\", \""+guitar.getColour()+ "\", "+guitar.getFret_amount()+
                                 ", "+guitar.getStrings_amount()+");";
                         System.out.println(statement_2_1+statement_2_2);
@@ -173,8 +138,8 @@ public class Scene3Controller implements Initializable {
 
                 try {
                     Keys keys_instr = new Keys(price, amount, name, type, k_amount, weight, power, size);
-                    String statement_1 = "INSERT INTO products(price, amount, available) VALUES (";
-                    String statement_2 = keys_instr.getPrice() +", "+ keys_instr.getAmount() +", "+ keys_instr.isAvailable()+");";
+                    String statement_1 = "INSERT INTO products(name, price, amount, available) VALUES (";
+                    String statement_2 = "\""+ keys_instr.getName()+"\","+keys_instr.getPrice() +", "+ keys_instr.getAmount() +", "+ keys_instr.isAvailable()+");";
                     String sql_1_2 = statement_1+statement_2;
                     System.out.println(sql_1_2);
 
@@ -183,9 +148,9 @@ public class Scene3Controller implements Initializable {
                         ResultSet rs = Connect.select("SELECT id FROM products ORDER BY 1 DESC LIMIT 1");
                         rs.next();
                         int ind = Integer.parseInt(rs.getString(1));
-                        String statement_2_1 = "INSERT INTO keys_instruments(id_prod, name, type, keys_amount," +
+                        String statement_2_1 = "INSERT INTO keys_instruments(id_prod, type, keys_amount," +
                                 " weight, speaker_size, speaker_power) VALUES (";
-                        String statement_2_2 = ind + ", \""+ keys_instr.getName()+ "\", \""+keys_instr.getType()
+                        String statement_2_2 = ind + ", \""+keys_instr.getType()
                                 + "\", "+keys_instr.getKeys_amount()+ ", "+keys_instr.getWeight()+ ", "+keys_instr.getSpeaker_size()+
                                 ", "+keys_instr.getSpeaker_power()+");";
                         System.out.println(statement_2_1+statement_2_2);
@@ -214,8 +179,8 @@ public class Scene3Controller implements Initializable {
 
                 try {
                     Percussive perc = new Percussive(price, amount, name, material, type, size);
-                    String statement_1 = "INSERT INTO products(price, amount, available) VALUES (";
-                    String statement_2 = perc.getPrice() +", "+ perc.getAmount() +", "+ perc.isAvailable()+");";
+                    String statement_1 = "INSERT INTO products(name, price, amount, available) VALUES (";
+                    String statement_2 ="\""+ perc.getName()+"\","+ perc.getPrice() +", "+ perc.getAmount() +", "+ perc.isAvailable()+");";
                     String sql_1_2 = statement_1+statement_2;
                     System.out.println(sql_1_2);
                     try {
@@ -223,9 +188,9 @@ public class Scene3Controller implements Initializable {
                         ResultSet rs = Connect.select("SELECT id FROM products ORDER BY 1 DESC LIMIT 1");
                         rs.next();
                         int ind = Integer.parseInt(rs.getString(1));
-                        String statement_2_1 = "INSERT INTO percussive(id_prod, name, type, material," +
+                        String statement_2_1 = "INSERT INTO percussive(id_prod, type, material," +
                                 " size_percussive) VALUES (";
-                        String statement_2_2 = ind + ", \""+ perc.getName()+ "\", \""+perc.getType()
+                        String statement_2_2 = ind + ", \""+perc.getType()
                                 + "\", \""+perc.getMaterial()+ "\", "+ perc.getSize()+");";
                         System.out.println(statement_2_1+statement_2_2);
                         Connect.add(statement_2_1+statement_2_2);
@@ -254,8 +219,8 @@ public class Scene3Controller implements Initializable {
                 amount = Integer.parseInt(amp_amount.getText());
                 try {
                     Amplifier amp = new Amplifier(price, amount, name, power, size, channel_am, type, eff_loop);
-                    String statement_1 = "INSERT INTO products(price, amount, available) VALUES (";
-                    String statement_2 = amp.getPrice() +", "+ amp.getAmount() +", "+ amp.isAvailable()+");";
+                    String statement_1 = "INSERT INTO products(name, price, amount, available) VALUES (";
+                    String statement_2 = "\""+ amp.getName()+"\","+amp.getPrice() +", "+ amp.getAmount() +", "+ amp.isAvailable()+");";
                     String sql_1_2 = statement_1+statement_2;
                     System.out.println(sql_1_2);
                     try {
@@ -263,9 +228,9 @@ public class Scene3Controller implements Initializable {
                         ResultSet rs = Connect.select("SELECT id FROM products ORDER BY 1 DESC LIMIT 1");
                         rs.next();
                         int ind = Integer.parseInt(rs.getString(1));
-                        String statement_2_1 = "INSERT INTO amplifiers(id_prod, name, type, power," +
+                        String statement_2_1 = "INSERT INTO amplifiers(id_prod, type, power," +
                                 " speaker_size, channels_amount, effect_loop) VALUES (";
-                        String statement_2_2 = ind + ", \""+ amp.getName()+ "\", \""+amp.getType()
+                        String statement_2_2 = ind + ", \""+amp.getType()
                                 + "\", "+amp.getPower()+ ", "+ amp.getSpeaker_size()+", "+amp.getChannels_amount()+
                                 ", "+amp.isEffect_loop()+");";
                         System.out.println(statement_2_1+statement_2_2);
@@ -295,8 +260,8 @@ public class Scene3Controller implements Initializable {
 
                 try {
                     Column column_amp = new Column(price, amount, name, power, size, imp,weight, speaker_am);
-                    String statement_1 = "INSERT INTO products(price, amount, available) VALUES (";
-                    String statement_2 = column_amp.getPrice() +", "+ column_amp.getAmount() +", "+ column_amp.isAvailable()+");";
+                    String statement_1 = "INSERT INTO products(name, price, amount, available) VALUES (";
+                    String statement_2 = "\""+ column_amp.getName()+"\","+column_amp.getPrice() +", "+ column_amp.getAmount() +", "+ column_amp.isAvailable()+");";
                     String sql_1_2 = statement_1+statement_2;
                     System.out.println(sql_1_2);
                     try {
@@ -304,9 +269,9 @@ public class Scene3Controller implements Initializable {
                         ResultSet rs = Connect.select("SELECT id FROM products ORDER BY 1 DESC LIMIT 1");
                         rs.next();
                         int ind = Integer.parseInt(rs.getString(1));
-                        String statement_2_1 = "INSERT INTO columns(id_prod, name, power," +
+                        String statement_2_1 = "INSERT INTO columns(id_prod, power," +
                                 " speaker_size, speakers_amount, impedance, weight) VALUES (";
-                        String statement_2_2 = ind + ", \""+ column_amp.getName()+ "\", "+column_amp.getPower()+ ", "
+                        String statement_2_2 = ind + ", "+column_amp.getPower()+ ", "
                                 + column_amp.getSpeaker_size()+", "+column_amp.getSpeaker_size()+", "+
                                 column_amp.getImpedance()+", "+column_amp.getWeight()+");";
                         System.out.println(statement_2_1+statement_2_2);
@@ -330,7 +295,7 @@ public class Scene3Controller implements Initializable {
         tableview.getColumns().clear();
         tableview.getItems().clear();
         tableview.refresh();
-        searchSQL();
+        SearchSQL.searchSQL(tableview);
     }
     @FXML
     private void delSQL(ActionEvent event) throws SQLException {
@@ -342,7 +307,7 @@ public class Scene3Controller implements Initializable {
             tableview.getColumns().clear();
             tableview.getItems().clear();
             tableview.refresh();
-            searchSQL();
+            SearchSQL.searchSQL(tableview);
             label_del.setText("Usunięto!");
         }
         catch (Exception e) {
@@ -381,7 +346,7 @@ public class Scene3Controller implements Initializable {
             }
         });
         try {
-            searchSQL();
+            SearchSQL.searchSQL(tableview);
         } catch (SQLException e) {
             System.out.println(e);
         }

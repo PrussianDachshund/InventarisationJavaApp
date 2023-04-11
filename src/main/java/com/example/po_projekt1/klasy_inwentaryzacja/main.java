@@ -1,8 +1,6 @@
-package klasy_inwentaryzacja;
+package com.example.po_projekt1.klasy_inwentaryzacja;
 
-import baza_danych.Connect;
-
-import static baza_danych.Connect.*;
+import com.example.po_projekt1.baza_danych.Connect;
 
 
 public class main {

@@ -1,4 +1,4 @@
-package klasy_inwentaryzacja;
+package com.example.po_projekt1.klasy_inwentaryzacja;
 
 public final class Column extends Sound{
     private final int speakers_amount;

@@ -105,7 +105,27 @@
             </HBox>
          </bottom>
          <center>
-            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TableView fx:id="tableview" layoutX="39.0" layoutY="21.0" onMouseClicked="#getRow" prefHeight="344.0" prefWidth="490.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="C1" />
+                      <TableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="542.0" layoutY="61.0" text="Nazwa:" />
+                  <JFXCheckBox fx:id="available" layoutX="623.0" layoutY="176.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="82.0" />
+                  <JFXButton fx:id="update" layoutX="664.0" layoutY="165.0" mnemonicParsing="false" onAction="#updateSQL" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: white;" text="Aktualizuj" />
+                  <TextField fx:id="id" editable="false" layoutX="600.0" layoutY="21.0" prefHeight="25.0" prefWidth="74.0" />
+                  <TextField fx:id="name" layoutX="600.0" layoutY="57.0" />
+                  <TextField fx:id="price" layoutX="601.0" layoutY="96.0" />
+                  <TextField fx:id="amount" layoutX="601.0" layoutY="132.0" onKeyReleased="#checkAvailable" />
+                  <Label layoutX="542.0" layoutY="100.0" text="Cena:" />
+                  <Label layoutX="542.0" layoutY="136.0" text="Ilość:" />
+                  <Label layoutX="542.0" layoutY="176.0" text="Dostępny:" />
+                  <Label layoutX="564.0" layoutY="25.0" text="ID:" />
+                  <Label fx:id="err" alignment="CENTER" layoutX="645.0" layoutY="212.0" prefHeight="17.0" prefWidth="125.0" />
+               </children></Pane>
          </center>
       </BorderPane>
    </children>

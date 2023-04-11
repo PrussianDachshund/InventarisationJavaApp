@@ -1,8 +1,7 @@
 package com.example.po_projekt1;
 
-import baza_danych.Connect;
+import com.example.po_projekt1.baza_danych.Connect;
 import com.jfoenix.controls.JFXToggleButton;
-import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -23,7 +22,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 
@@ -135,31 +133,31 @@ public class Scene2Controller implements Initializable {
                 sql_query_2 = "products";
                 break;
             case "Gitary":
-                sql_query_1 = "SELECT products.id, strings.id, name, type, material, colour, fret_amount, " +
+                sql_query_1 = "SELECT products.id, strings.id, products.name, type, material, colour, fret_amount, " +
                         "strings_amount, products.amount, products.price FROM products";
                 sql_query_2 = "strings";
                 sql_join += " JOIN "+sql_query_2 + " ON products.id="+sql_query_2+".id_prod";
                 break;
             case "Klawisze":
-                sql_query_1 = "SELECT products.id, keys_instruments.id, name, type, keys_amount, weight," +
+                sql_query_1 = "SELECT products.id, keys_instruments.id, products.name, type, keys_amount, weight," +
                         " speaker_power, speaker_size, products.amount, products.price FROM products";
                 sql_query_2 = "keys_instruments";
                 sql_join += " JOIN "+sql_query_2 + " ON products.id="+sql_query_2+".id_prod";
                 break;
             case "Perkusyjne":
-                sql_query_1 = "SELECT products.id, percussive.id, name, type, material, size_percussive, " +
+                sql_query_1 = "SELECT products.id, percussive.id, products.name, type, material, size_percussive, " +
                         "products.amount, products.price FROM products";
                 sql_query_2 = "percussive";
                 sql_join += " JOIN "+sql_query_2 + " ON products.id="+sql_query_2+".id_prod";
                 break;
             case "Wzmacniacze":
-                sql_query_1 = "SELECT products.id, amplifiers.id, name, type, power, speaker_size, channels_amount," +
+                sql_query_1 = "SELECT products.id, amplifiers.id, products.name, type, power, speaker_size, channels_amount," +
                         " effect_loop, products.amount, products.price FROM products";
                 sql_query_2 = "amplifiers";
                 sql_join += " JOIN "+sql_query_2 + " ON products.id="+sql_query_2+".id_prod";
                 break;
             case "Kolumny":
-                sql_query_1 = "SELECT products.id, columns.id, name, power, speaker_size," +
+                sql_query_1 = "SELECT products.id, columns.id, products.name, power, speaker_size," +
                         " speakers_amount, impedance, weight, products.amount," +
                         " products.price FROM products";
                 sql_query_2 = "columns";
