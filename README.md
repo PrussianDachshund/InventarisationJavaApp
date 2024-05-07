@@ -1,1 +1,1 @@
-Inventarization Java App for database server
+Inventarisation Java App for database server
